@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+
+    <diskStore path="java.io.tmpdir"/>
+
+    <defaultCache maxElementsInMemory="100"
+                  eternal="false"
+                  timeToIdleSeconds="30"
+                  timeToLiveSeconds="30"
+                  overflowToDisk="false"/>
+
+    <!-- 获取最新的十条数据, 永不过期, 当有数据更新时手动清除缓存 -->
+    <cache name="listCache"
+           maxElementsInMemory="10"
+           eternal="true"
+           overflowToDisk="false"/>
+
+    <!-- 定期取得最新的腾讯视频地址, 四小时自动清除缓存 -->
+    <cache name="urlCache"
+           maxElementsInMemory="10"
+           eternal="false"
+           timeToIdleSeconds="0"
+           timeToLiveSeconds="14400"
+           overflowToDisk="false"/>
+
+</ehcache>
