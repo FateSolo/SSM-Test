@@ -8,11 +8,12 @@ import java.util.Map;
 
 public class Response {
 
+    //使用Nginx进行反向代理, 并管理html, js, css等静态资源文件, 该路径对应了Nginx配置中对应静态资源的location
     public final static String PATH = "/message/";
 
-    public final static String SUCCESS = "000000";  //成功
+    public final static String SUCCESS = "000000";
 
-    public final static String FAILURE = "100001";  //失败
+    public final static String FAILURE = "100001";
 
     public static String success(String msg) {
         return "{\"resCode\":\"" + SUCCESS + "\",\"resMsg\":\"" + msg + "\",\"data\":{}}";
